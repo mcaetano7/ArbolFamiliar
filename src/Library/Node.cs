@@ -5,50 +5,25 @@ using System.Collections.ObjectModel;
 
 public class Node
 {
-    private int age;
-    private string name;
-    
+    public object Data { get; set; }
+    public List<Node> Children { get; set; }
 
-    private List<Node> children = new List<Node>();
-
-    public int Age {
-        get
-        {
-            return this.age;
-        }
-    }
-
-    public string Name
+    public Node(object data)
     {
-        get
-        {
-            return this.name;
-        }
+        Data = data;
+        Children = new List<Node>();
     }
 
-    public ReadOnlyCollection<Node> Children {
-        get
-        {
-            return this.children.AsReadOnly();
-        }
-    }
-
-    public Node(int age)
+    public void AddChildren(Node child)
     {
-        this.age = age;
-        this.name = name;
-    }
-
-    public void AddChildren(Node n)
-    {
-        this.children.Add(n);
+        Children.Add(child);
     }
     public void Accept(IVisitor visitor)
     {
         visitor.Visit(this);
-        foreach (var item in this.children)
+        foreach (var child in Children)
         {
-            item.Accept(visitor);
+            child.Accept(visitor);
         }
     }
 }

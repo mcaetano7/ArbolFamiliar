@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 namespace Library
 {
     public class Person
@@ -9,6 +11,11 @@ namespace Library
         {
             Name = name;
             Age = age;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} ({Age} edad)";
         }
     }
 }

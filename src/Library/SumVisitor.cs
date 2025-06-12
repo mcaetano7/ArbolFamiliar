@@ -2,18 +2,14 @@ namespace Library;
 
 public class SumVisitor: IVisitor
 {
-    private int sum = 0;
-
-    public int Sum
-    {
-        get
-        {
-            return this.sum;
-        }
-    }
+   public int Sum { get; private set; }
 
     public void Visit(Node node)
     {
-        sum += node.Number;
+        if (node.Data is int number)
+        {
+            Sum += number;
+        }
+        
     }
 }
