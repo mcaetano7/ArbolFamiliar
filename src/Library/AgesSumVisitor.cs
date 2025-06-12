@@ -11,9 +11,5 @@ public class AgesSumVisitor : IVisitor
             Sum += person.Age;
         }
     }
-
-    public void Visit(Node node)
-    {
-        if (node)
-    }
+    
 }
