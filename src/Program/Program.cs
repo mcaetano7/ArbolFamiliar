@@ -25,12 +25,12 @@ namespace Program
             n3.AddChildren(n7);
 
             // acá visita el {arbol
-            SumVisitor visitor = new SumVisitor();
+            AgesSumVisitor visitor = new AgesSumVisitor();
             n1.Accept(visitor);
-            Console.WriteLine(visitor.Sum);
+            Console.WriteLine("La suma de las edades es: " + visitor.Sum);
             
             
-            //hijo más grande (persona más grande? todas las peronas son hijos idk)
+            //hijo más grande (persona más grande? todas las peronas son hijos)
             OldestChildVisitor visitor2 = new OldestChildVisitor();
             n1.Accept(visitor2);
             Console.WriteLine("Hijo más grande: " + visitor2.OldestChild);
