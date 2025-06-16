@@ -7,22 +7,25 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Node n1 = new Node(1);
-            Node n2 = new Node(2);
-            Node n3 = new Node(3);
-            Node n4 = new Node(4);
-            Node n5 = new Node(5);
-            Node n6 = new Node(6);
-            Node n7 = new Node(7);
+            //creamos personas
+            Node n1 = new Node(new Person("Marcela", 64));
+            Node n2 = new Node(new Person("Yunicua", 72));
+            Node n3 = new Node(new Person("Rodolfo", 93));
+            Node n4 = new Node(new Person("Ramiro", 2));
+            Node n5 = new Node(new Person("Paula", 33));
+            Node n6 = new Node(new Person("Manuela", 15));
+            Node n7 = new Node(new Person("Ezequiel", 26));
+            
+            //creamos el arbol
+            n1.AddChildren(n5);
+            n1.AddChildren(n7);
 
-            n1.AddChildren(n2);
-            n1.AddChildren(n3);
+            n2.AddChildren(n1);
 
-            n2.AddChildren(n4);
-            n2.AddChildren(n5);
-
-            n3.AddChildren(n6);
-            n3.AddChildren(n7);
+            n3.AddChildren(n2);
+            
+            n5.AddChildren(n6);
+            n5.AddChildren((n4));
 
             // acá visita el {arbol
             AgesSumVisitor visitor = new AgesSumVisitor();

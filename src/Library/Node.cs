@@ -13,6 +13,8 @@ public class Node
         Data = data;
         Children = new List<Node>();
     }
+    
+    public bool IsLeaf => Children == null || Children.Count == 0;
 
     public void AddChildren(Node child)
     {
