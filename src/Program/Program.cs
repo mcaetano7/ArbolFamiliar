@@ -27,20 +27,20 @@ namespace Program
             n5.AddChildren(n6);
             n5.AddChildren((n4));
 
-            // acá visita el {arbol
+            // acá visita el arbol
             AgesSumVisitor visitor = new AgesSumVisitor();
-            n1.Accept(visitor);
+            n3.Accept(visitor);
             Console.WriteLine("La suma de las edades es: " + visitor.Sum);
             
             
             //hijo más grande (persona más grande? todas las peronas son hijos)
-            OldestChildVisitor visitor2 = new OldestChildVisitor();
-            n1.Accept(visitor2);
-            Console.WriteLine("Hijo más grande: " + visitor2.OldestChild);
+            OldestPersonExcludingRootVisitor visitor2 = new OldestPersonExcludingRootVisitor(n3);
+            n3.Accept(visitor2);
+            Console.WriteLine("Hijo más grande: " + visitor2.OldestChild.Name);
             
             //nombre más largo
             NameVisitor visitor3 = new NameVisitor();
-            n1.Accept(visitor3);
+            n3.Accept(visitor3);
             Console.WriteLine("Nombre más largo: " + visitor3.LongestName);
         }
         
