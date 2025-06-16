@@ -25,7 +25,7 @@ namespace Program
             n3.AddChildren(n2);
             
             n5.AddChildren(n6);
-            n5.AddChildren((n4));
+            n5.AddChildren(n4);
 
             // acá visita el arbol
             AgesSumVisitor visitor = new AgesSumVisitor();
@@ -36,7 +36,7 @@ namespace Program
             //hijo más grande (persona más grande? todas las peronas son hijos)
             OldestPersonExcludingRootVisitor visitor2 = new OldestPersonExcludingRootVisitor(n3);
             n3.Accept(visitor2);
-            Console.WriteLine("Hijo más grande: " + visitor2.OldestChild.Name);
+            Console.WriteLine("Hijo más grande es: " + visitor2.OldestChild.Name + "con " + visitor2.OldestChild.Age + " años" );
             
             //nombre más largo
             NameVisitor visitor3 = new NameVisitor();
