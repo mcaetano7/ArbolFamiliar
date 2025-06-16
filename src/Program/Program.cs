@@ -24,10 +24,22 @@ namespace Program
             n3.AddChildren(n6);
             n3.AddChildren(n7);
 
-            // visitar el árbol aquí
+            // acá visita el {arbol
             SumVisitor visitor = new SumVisitor();
             n1.Accept(visitor);
             Console.WriteLine(visitor.Sum);
+            
+            
+            //hijo más grande (persona más grande? todas las peronas son hijos idk)
+            OldestChildVisitor visitor2 = new OldestChildVisitor();
+            n1.Accept(visitor2);
+            Console.WriteLine("Hijo más grande: " + visitor2.OldestChild);
+            
+            //nombre más largo
+            NameVisitor visitor3 = new NameVisitor();
+            n1.Accept(visitor3);
+            Console.WriteLine("Nombre más largo: " + visitor3.LongestName);
         }
+        
     }
 }
